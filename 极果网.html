@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .outer{
+            margin: 0;
+
+        }
+        .header{
+            height: 80px;
+            width: 70%;
+            min-width: 1500px;
+            overflow: hidden;
+
+        }
+
+        #logo{
+
+            margin-left: 20%;
+            height:70px;
+            /*width: 266px;*/
+            margin-right: 50px;
+            float: left;
+
+        }
+        .img{
+            height: 300px;
+            width: 100%;
+            min-width: 1500px;
+            float: left;
+
+            /*right: 110%;*/
+        }
+
+        .header-choice{
+
+            margin-top: 30px;
+            margin-left: 20px;
+            text-align: center;
+            font-size:25px;
+            float: left;
+            height: 70px;
+            min-width: 500px;;
+        }
+        #search_img{
+            margin-top: 30px;
+            margin-left: 100px;
+            float: left;
+        }
+        #register{
+            margin-top: 25px;
+            margin-left: 28px;
+            float: left;
+            background-color: white;
+            color: red;
+            border:solid 1px red;
+            font-size: larger;
+            border-radius: 12%;
+        }
+        .header-button{
+            margin-left: 50px;
+            float: left;
+        }
+        .reason{
+
+            display: inline-block;
+            color: white;
+            background-color: red;
+            padding: 2px 10px;
+            font-size: smaller;
+            float: right;
+            position: relative;
+            margin-top: -135px;
+            border-radius: 5%;
+
+
+        }
+        .more{
+            color: red;
+            position: relative;
+            margin-top: -30px;
+            margin-right: 30px;
+            left: 0;
+            top:0;
+            float: right;
+        }
+        .origin_information{
+
+            position: relative;
+            width: 300px;
+            float: left;
+            margin-left: -46%;
+            color: white;
+        }
+        .bar span{
+            background-color: rgba(255, 251, 240,0.3);
+
+            margin: 10px;
+
+            padding: 5px;
+            float: right;
+        }
+        .center{
+            width: 60%;
+            min-width: 1050px;
+            overflow: hidden;
+            margin-left: 15%;
+            margin-right: 15%;
+
+        }
+        #center_first .goods{
+            text-align:center;
+            float:left;
+            margin:10px 20px ;
+            width: 220px;
+            height: 288px;
+            border: solid lightgray 1px;
+            border-radius: 3%;
+
+
+        }
+        #center_first .good {
+            height: 130px;
+            width: 100%;
+            border-top-left-radius: 5%;
+            border-top-right-radius: 5%;
+
+        }
+        #center_first .good-name{
+            margin: 0 ;
+        }
+        #center_first .red{
+            border: solid red 1px;
+            border-radius: 15%;
+            color: red;
+            margin: 5px 10px;
+            font-size: 5px;
+            padding:2px 5px;
+        }
+        #center_first {
+            float: top;
+            display: inline-block;
+        }
+        #center_second .goods{
+            /*text-align:center;*/
+            float:left;
+            margin:10px 20px ;
+            width: 220px;
+            height: 234px;
+            border: solid lightgray 1px;
+            border-radius: 3%;
+
+
+
+        }
+        #center_second .good{
+            height: 130px;
+            width: 100%;
+
+        }
+        #center_second .good-name{
+            margin: 0 ;
+        }
+        #center_second {
+            float: top;
+            display: inline-block;
+        }
+        .details{
+            margin-top: 20px;
+        }
+        .social{
+            float: right;
+            margin-right: 30px;
+
+        }
+        .zan{
+            height: 12px;
+            width: 12px;
+
+        }
+        .pinglun{
+            height: 12px;
+            width: 12px;
+        }
+
+        #center_third{
+            float: top;
+            display: inline-block;
+        }
+        #center_third .goods{
+            /*text-align:center;*/
+            float:left;
+            margin:10px 20px ;
+            width: 220px;
+            height: 234px;
+            border: solid lightgray 1px;
+            /*border-bottom: hidden;*/
+            border-radius: 3%;
+
+        }
+        #center_third .tail{
+            position: relative;
+            bottom: 2px;
+        }
+        #center_third .good{
+            height: 130px;
+            width: 100%;
+
+        }
+        #center_third .good-name{
+            margin: 0 ;
+        }
+
+        #center_fourth .goods{
+            /*text-align:center;*/
+            float:left;
+            margin:10px 20px ;
+            width: 220px;
+            height: 234px;
+            border: solid lightgray 1px;
+            border-radius: 3%;
+
+
+
+        }
+        #center_fourth .good{
+            height: 130px;
+            width: 100%;
+
+        }
+        #center_fourth .good-name{
+            margin: 0 ;
+        }
+        #center_fourth {
+            float: top;
+            display: inline-block;
+        }
+        .footer{
+            background-color: black;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="header">
+            <img id="logo" src="img_jiguo/logonew.png"/>
+            <div class="header-choice">
+                <span class="header-button" style="color: red">首页</span>
+                <span class="header-button">酷玩</span>
+                <span class="header-button">导购</span>
+                <span class="header-button">试用</span>
+                <span class="header-button">报告</span>
+            </div>
+            <img id="search_img" src="img_jiguo/search.png" height="26" width="24"/>
+            <button id="register">注册</button>
+        </div>
+
+        <div class="bar">
+            <div class="img"><img id="origin" src="img_jiguo/original.jpg"></div>
+            <div class="origin_information">
+                <h1>幻响小贝HiFi2.1音箱</h1>
+                <span >126人申请</span> <span>¥599</span> <span>20台</span>
+                <h2 style="float: right;font-size: 20px">申请剩余时间:13天5小时17分钟</h2>
+                <button style="float: right;background-color: red;color: white;width: 249px;height: 50px;font-size: 30px;border: none">立即申请</button>
+            </div>
+
+        </div>
+        <div class="center">
+            <div class="center-body" id="center_first">
+                <h2 class="center_head" style="margin-left: 20px">热门试用</h2>
+                <div class="center_contains">
+                    <div class="goods">
+
+                        <div>
+                            <img class="good" src="img_jiguo/hot1.jpg"/>
+                            <div class="reason">首发</div>
+                        </div>
+                        <h3 class="good-name">巴慕达The Toast 烤面包机</h3>
+                        <div><span class="red">¥512</span> <span class="red">20台</span></div>
+                        <div style="color: red;margin-top: 10px"><span>1392人</span><a style="color: black">申请</a></div>
+                        <span style="color: red;">剩余时间2天</span>
+
+                    </div><div class="goods">
+                    <div><img class="good" src="img_jiguo/hot2.jpg"/>
+                        <div class="reason" style="color: goldenrod;background-color: palegoldenrod">体验师专享</div></div>
+                    <h3 class="good-name">Osprey小鹰户外运动专业腰包</h3>
+                    <div><span class="red">¥512</span> <span class="red">20台</span></div>
+                    <div style="color: red;margin-top: 10px"><span>1392人</span><a style="color: black">申请</a></div>
+                    <span style="color: red;">剩余时间2天</span>
+                </div><div class="goods">
+                    <div><img class="good" src="img_jiguo/hot3.jpg"/>
+                        <div class="reason">首发</div></div>
+                    <h3 class="good-name">巴慕达The Toast 烤面包机</h3>
+                    <div><span class="red">¥512</span> <span class="red">20台</span></div>
+                    <div style="color: red;margin-top: 10px"><span>1392人</span><a style="color: black">申请</a></div>
+                    <span style="color: red;">剩余时间2天</span>
+                </div><div class="goods">
+                    <div><img class="good" src="img_jiguo/hot4.jpg"/>
+                        <div class="reason">首发</div></div>
+                    <h3 class="good-name">巴慕达The Toast 烤面包机</h3>
+                    <div><span class="red">¥512</span> <span class="red">20台</span></div>
+                    <div style="color: red;margin-top: 10px"><span>1392人</span><a style="color: black">申请</a></div>
+                    <span style="color: red;">剩余时间2天</span>
+                </div>
+                </div>
+
+            </div>
+            <div class="center-body" id="center_second">
+
+                <h2 class="center_head" style="margin-left: 20px">报告精选</h2>
+                <div class="more">查看更多<img src="img_jiguo/readMore.png" height="13" width="16"/></div>
+                <div class="center_contains">
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg1.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">空气净化器里面学问多得惊呆你,你选对了吗?</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 苏苏</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg2.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">怎么骑都不会累的自行车: 云马 C1试骑体验</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 海滨</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg3.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">声音不是最优秀,但它形音完美的结合,足够打动人心</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• iAra</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg4.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">风光大片信手拈来!vivoX6plus不只是快,还是一台拍照利器</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 苏苏</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg5.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">怎么骑都不会累的自行车: 云马 C1试骑体验</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 苏苏</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg6.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">空气净化器里面学问多得惊呆你,你选对了吗</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 苏苏</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg7.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">声音不是最优秀,但它形音完美的结合,足够打动人心</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 苏苏</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg8.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">风光大片信手拈来!vivoX6plus不只是快,还是一台拍照利器</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 苏苏</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="center-body" id="center_third">
+
+
+                <h2 class="center_head" style="margin-left: 20px">导购精选</h2>
+                <div class="more">查看更多<img src="img_jiguo/readMore.png" height="13" width="16"/></div>
+                <div class="center_contains">
+                    <div class="goods">
+
+                            <div><img class="good" src="img_jiguo/g1.jpg"/></div>
+
+                            <h5 class="good-name" style="margin: 3px 8px;">花万元把蜗居秒变"豪宅"?这12件家具就能帮你办到</h5>
+                            <div class="details">
+                                <div class="social">
+                                    <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                    <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                                </div>
+                            </div>
+
+                        <div class="tail"><img src="img_jiguo/listbg.jpg" height="15" width="220"/></div>
+                    </div>
+
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/g2.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">到底有没有完美的iphone手机配件,答案都在这里</h5>
+                        <div class="details">
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                            <div class="tail"><img src="img_jiguo/listbg.jpg" height="15" width="220"/></div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/g3.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">2016 这八支钢笔绝对够你装逼一整年        </h5>
+                        <div class="details">
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                            <div class="tail"><img src="img_jiguo/listbg.jpg" height="15" width="220"/></div>
+                        </div>
+
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/g4.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">他花12找一把完美剃须刀,给你两万字终极购买指南</h5>
+                        <div class="details">
+
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                            <div class="tail"><img src="img_jiguo/listbg.jpg" height="15" width="220"/></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="center-body" id="center_fourth">
+
+
+                <h2 class="center_head" style="margin-left: 20px">发现酷玩</h2>
+                <div class="more">查看更多<img src="img_jiguo/readMore.png" height="13" width="16"/></div>
+                <div class="center_contains">
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg1.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">空气净化器里面学问多得惊呆你,你选对了吗?</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 苏苏</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg2.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">怎么骑都不会累的自行车: 云马 C1试骑体验</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 海滨</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg3.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">声音不是最优秀,但它形音完美的结合,足够打动人心</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• iAra</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg4.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">风光大片信手拈来!vivoX6plus不只是快,还是一台拍照利器</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 苏苏</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg5.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">怎么骑都不会累的自行车: 云马 C1试骑体验</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 苏苏</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg6.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">空气净化器里面学问多得惊呆你,你选对了吗</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 苏苏</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg7.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">声音不是最优秀,但它形音完美的结合,足够打动人心</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 苏苏</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods">
+                        <div><img class="good" src="img_jiguo/bg8.jpg"/></div>
+                        <h5 class="good-name" style="margin: 3px 8px;">风光大片信手拈来!vivoX6plus不只是快,还是一台拍照利器</h5>
+                        <div class="details">
+                            <span class="name" style="margin-top:50px;margin-left:8px;">• 苏苏</span>
+                            <div class="social">
+                                <span ><img class="zan" src="img_jiguo/zan.png"/>3</span>
+                                <span ><img class="pinglun" src="img_jiguo/reply.png"/>5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+
+        </div>
+    </div>
+</body>
+</html>
