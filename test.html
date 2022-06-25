@@ -4,7 +4,37 @@
     <meta charset="UTF-8">
     <title>测试页面</title>
 </head>
+<style>
+    #test{
+        /* background-color: yellow; */
+        height: 200px;
+        width: 200px;
+        border: 50px solid green;
+        border-radius: 60%;
+        font-size: 20px;
+        line-height: 200px;
+        text-align:center;
+        background-size: 200px 200px;
+        background-image:url("1.jpg");
+    }
+</style>
 <body>
 <div><span>大家好，我叫栾旭麒，这是我的第一个个人页面</span></div>
+<div style="background-color:yellow">这是一个div</div>
+<span style="background-color:blue">这是一个span</div>
+<div id="test">这是一个测试div</div>
+<input name="mz" placeholder="请输入你的名字"/>
 </body>
+<script>
+    console.log(123)
+    console.log("nihao")
+    var test = document.getElementById("test");
+    test.onclick = function(){
+        console.log("别点我");
+        test.style.backgroundColor="yellow";
+        test.style.border="10px dotted grey";
+    }
+    mz = document.getElementsByTagName("mz")[0]
+    mz.value;
+</script>
 </html>
