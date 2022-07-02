@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: skyblue;
+        }
+
+        span {
+            background-color: red;
+        }
+
+        .qg {
+            /* background-color: blue; */
+            height: 108px;
+            width: 192px;
+            border: 10px solid green;
+            margin: 20px;
+            padding: 10px;
+            /* padding-left: 20px; */
+            background-image:url("1.jpg");
+            background-size: 192px 108px;
+            /* border-radius: 60%; */
+            /* position: absolute;
+            padding-left: 100px; */
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: green">这是一个div</div>
+    <div>这是一个div</div>
+    <div>这是一个div</div>
+    <span>这是一个span</span>
+    <span>这是一个span</span>
+    <span>这是一个span</span>
+    <div>
+        <!-- 相对路径 绝对路径 -->
+        <div class="qg">
+            <a href="https://www.baidu.com">我要去百度</a>
+        </div>
+        <div class="qg">
+            <a href="3d.html">去看3d</a>
+        </div>
+        <div class="qg">
+            <a href="https://www.4399.com/flash/18012.htm">我要玩植物大战僵尸</a>
+        </div>
+    </div>
+    <span>这是一个span</span>
+    <input id="srk" placeholder="请输入你的名字"/>
+    <button type="button" id="tj">提交</button>
+</body>
+<script>
+    console.log("Hello,world!");
+    console.log(1+1%2);
+
+    //获取元素
+    // int tj = xxxxx;
+    var tj = document.getElementById("tj");
+    // 匿名函数
+    tj.onclick = function (){
+        //获取输入框的值
+        var srk = document.getElementById("srk");
+        var nr = srk.value;
+        alert(nr + "你好");
+    };
+    //相同点 有函数名 参数 方法体 
+    //不同点 没有返回值类型
+    // function tijiao(){
+    //     alert("你好");
+    // }
+    // alert("你确定栾旭麒是大坏蛋吗？")
+    var a = 1;
+    if (a % 2 == 0) {
+
+    } else if (a % 3 == 0) {
+
+    } else {
+
+    }
+    for (var i = 0; i < 100; i++) {
+
+    }
+    
+</script>
+</html>

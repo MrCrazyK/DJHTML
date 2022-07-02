@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>栾旭麒的五子棋</title>
+    <style>
+    .black{
+        width: 30px;
+        height: 30px;
+        background-color: black;
+        border-radius: 50%;
+    }
+    .white{
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        border-radius: 50%;
+    }
+    td {
+        width: 30px;
+        height: 30px;
+        border: 2px solid gray;
+        margin: 0;
+    }
+
+    .box {
+      border-spacing: 0px;
+      border: 1px solid #3c3c3c;
+      background-color: #e1e1e2;
+      margin: auto;
+    }
+    
+    .piece {
+      border-spacing: 0px;
+      border: 1px solid;    
+    }
+    .pieceBox {
+      width: 20px; 
+      height: 20px;
+      border:1px solid transparent;
+      border-radius: 50%;
+    }
+    #tb{
+        background-color: burlywood;
+    }
+    </style>
+</head>
+<body>
+    <table id="tb" cellspacing=0>
+        <!-- <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr> -->
+    </table>
+</body>
+<script>
+    var tb = document.getElementById("tb");
+    // var tr = document.createElement("tr");
+    // var td = document.createElement("td");
+    //x坐标 y坐标 s颜色 -1黑 0没有 1白
+    var qizi = {x:0,y:0,s:0};
+    var tr = "<tr>";
+    for (var i = 0; i < 20; i++) {
+        var td = "<td class='gezi'></td>";
+        tr += td;
+    }
+    tr += "</tr>";
+    var text = "";
+    for (var i = 0; i < 20; i++) {
+        text += tr;
+    }
+    tb.innerHTML += text;
+    var gezi = document.getElementsByClassName("gezi");
+    var num = 0;
+    var end = false;
+    var all = new Array()
+    for (let i = 0; i < 20; i++) {
+        var arr = new Array();  
+        for (let i = 0; i < 20; i++) {
+            arr[i] = 0;
+        }
+        all[i] = arr;
+    }
+    for(var i = 0; i < gezi.length; i++){
+        // all[i/20][i%20] = 0;
+        //闭包
+        (function (i){
+            gezi[i].onclick = function (){
+                //根据i计算出行和列 0-19
+                var hang = parseInt(i/20);
+                var lie = i%20;
+                var s = 0;
+                if(end || !useable(hang,lie)){
+                    alert("不可以再下了！")
+                    return;
+                }
+                if(num % 2 == 0){
+                    s = -1;
+                    gezi[i].innerHTML = "<div class='black'></div>";
+                } else {
+                    s = 1;
+                    gezi[i].innerHTML = "<div class='white'></div>";
+                }
+                num ++;
+                all[hang][lie] = s;
+                if(win(hang,lie,s)) {
+                    setTimeout(function(){
+                        end = true;
+                        alert("赢啦")
+                    },100);
+                }
+            }
+        })(i);
+    }
+    function i_xy(i){
+        var x_p = i/20;
+        var y_p = i%20;
+        var qizi = {
+            x:x_p,
+            y:y_p,
+            s:0
+        }
+        return qizi;
+    }
+    //x坐标 y坐标 s颜色 -1黑 0没有 1白
+    //判断游戏是否结束的方法
+    function win(x,y,s){
+        return x_win(x,y,s) || y_win(x,y,s) || zuo_xie_win(x,y,s) || you_xie_win(x,y,s)
+    }
+    //x坐标 y坐标 s颜色 -1黑 0没有 1白
+    function x_win(x,y,s){
+        //判断左边有几个相同颜色的 最多4个
+        var j = 0;
+        for (let i = 1; i < 5; i++) {
+            if(y-i >= 0 && all[x][y-i] == s){
+                j ++
+            } else {
+                break
+            }
+        }
+        var k = 4-j;
+        for (let i = 1; i <= k; i++) {
+            if(y+i < 20 && all[x][y+i] == s){
+                j ++
+            } else {
+                break
+            }           
+        }
+        return j == 4;
+    }
+    //x坐标 y坐标 s颜色 -1黑 0没有 1白
+    function y_win(x,y,s){
+        var j = 0;
+        for (let i = 1; i < 5; i++) {
+            if(x-i >= 0 && all[x-i][y] == s){
+                j ++
+            } else {
+                break
+            }
+        }
+        var k = 4-j;
+        for (let i = 1; i <= k; i++) {
+            if(x+i < 20 && all[x+i][y] == s){
+                j ++
+            } else {
+                break
+            }           
+        }
+        return j == 4;
+    }
+    //x坐标 y坐标 s颜色 -1黑 0没有 1白
+    function zuo_xie_win(x,y,s){
+        var j = 0;
+        for (let i = 1; i < 5; i++) {
+            if(x-i >= 0 && y-i>=0 && all[x-i][y-i] == s){
+                j ++
+            } else {
+                break
+            }
+        }
+        var k = 4-j;
+        for (let i = 1; i <= k; i++) {
+            if(x+i < 20 && y+i < 20 && all[x+i][y+i] == s){
+                j ++
+            } else {
+                break
+            }           
+        }
+        return j == 4;
+    }
+    function you_xie_win(x,y,s){
+        var j = 0;
+        for (let i = 1; i < 5; i++) {
+            if(x+i < 20 && y-i >= 0 && all[x+i][y-i] == s){
+                j ++
+            } else {
+                break
+            }
+        }
+        var k = 4-j;
+        for (let i = 1; i <= k; i++) {
+            if(x-i >= 0 && y+i < 20 && all[x-i][y+i] == s){
+                j ++
+            } else {
+                break
+            }           
+        }
+        return j == 4;
+    }
+    //判断当前位置是否被下过了
+    function useable(x,y){
+        return all[x][y] == 0;
+    }
+
+</script>
+</html>

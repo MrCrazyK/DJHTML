@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>栾旭麒的贪吃蛇</title>
+    <style>
+    .black{
+        width: 30px;
+        height: 30px;
+        background-color: black;
+    }
+    .red{
+        width: 30px;
+        height: 30px;
+        background-color: red;
+    }
+    .green{
+        width: 30px;
+        height: 30px;
+        background-color: green;
+    }
+    td {
+        width: 30px;
+        height: 30px;
+        border: 2px solid gray;
+        margin: 0;
+    }
+
+    .box {
+      border-spacing: 0px;
+      border: 1px solid #3c3c3c;
+      background-color: #e1e1e2;
+      margin: auto;
+    }
+    
+    .piece {
+      border-spacing: 0px;
+      border: 1px solid;    
+    }
+    .pieceBox {
+      width: 20px; 
+      height: 20px;
+      border:1px solid transparent;
+      border-radius: 50%;
+    }
+    #tb{
+        background-color: burlywood;
+    }
+    </style>
+</head>
+<body>
+    <table id="tb" cellspacing=0>
+        
+    </table>
+    <button id="begin">开始游戏</button>
+</body>
+<script language="javascript">
+    var tb = document.getElementById("tb");
+    //x坐标 y坐标 s颜色 -1黑 0没有 1白
+    var qizi = {x:0,y:0,s:0};
+    var tr = "<tr>";
+    for (var i = 0; i < 20; i++) {
+        var td = "<td class='gezi'></td>";
+        tr += td;
+    }
+    tr += "</tr>";
+    var text = "";
+    for (var i = 0; i < 20; i++) {
+        text += tr;
+    }
+    tb.innerHTML += text;
+    var gezi = document.getElementsByClassName("gezi");
+    gezi[0].className += " black ";
+    gezi[1].className += " black ";
+    gezi[2].className += " red ";
+    function guozi() {
+        //0-1  => 0-399
+        var random = 0;
+        var str = "";
+        do {
+            random = Math.ceil(Math.random()*399);
+            str = gezi[random].className;
+        } while(str.indexOf("black") != -1 || str.indexOf("red") != -1);
+        gezi[random].className = "gezi green";
+    }
+
+    //贪吃蛇的自动运行逻辑
+    let body = [
+        {hang:0,lie:2},
+        {hang:0,lie:1},
+        {hang:0,lie:0}
+    ]
+    // var tou = {
+    //     hang:0,
+    //     lie:5
+    // };
+    // var wei = {
+    //     hang:0,
+    //     lie:0
+    // }
+    // console.log(tou)
+    // while(true){
+    //     setTimeout(function(){
+    //         console.log(123)
+    //     }, 1000);
+    // }
+    // 1 2 3 4 → ↓ ← ↑
+    var direct = 1;
+    function auto_run(){
+        console.log(body.length);
+        console.log(body[0])
+        console.log(body[1])
+        console.log(body[2])
+        //确定贪吃蛇运动方向
+        //头部和尾部向前推进
+        //只需要处理 头前 头部 尾部
+        setTimeout(function(){
+                    shuaxin();  
+        },100);
+    }
+    function shuaxin(){
+        //修改本帧的头位置为黑色
+        gezi[get_i(body[0].hang,body[0].lie)].className = "gezi black";
+
+        //根据方向处理下一帧的头位置
+        var next_head = {hang:null,lie:null};
+        next_head.hang = body[0].hang;
+        next_head.lie = body[0].lie;
+        switch (direct) {
+            case 1:
+                next_head.lie+=1;
+                break;
+            case 2:
+                next_head.hang+=1;
+                break;
+            case 3:
+                next_head.lie-=1;
+                break;
+            case 4:
+                next_head.hang-=1;
+                break;
+            default:
+                break;
+        }
+        //判断next_head有没有碰到墙壁或者自己的身体
+        if(game_over(next_head.hang,next_head.lie)){
+            alert("game over!");
+            clearInterval(timer);
+        }
+        eat(next_head.hang,next_head.lie);
+        gezi[get_i(next_head.hang,next_head.lie)].className = "gezi red";
+        body.unshift(next_head);
+    }
+    function get_i(hang,lie){
+        return hang*20+lie;
+    }
+    //按键之后的拐弯逻辑
+    function guaiwan(direction){
+        //拐弯时 脖子和尾部正常刷新，头部往方向键处刷新
+    }
+    //游戏结束的逻辑 碰到身体或者碰到墙壁
+    function game_over(hang,lie){
+        //判断有没有碰到自己的身体
+        var str = gezi[get_i(hang,lie)].className;
+        return !(str.indexOf("black") == -1 && hang >= 0 && hang <20 && lie >=0 && lie <20)
+        //判断头部的下一帧刷新位置（在下一秒）是不是黑色
+    }
+    //吃果子的逻辑
+    function eat(hang,lie){
+        var str = gezi[get_i(hang,lie)].className;
+        if(str.indexOf("green") == -1){
+            console.log("没迟到")
+            //处理尾部的格子
+            gezi[get_i(body[body.length-1].hang,body[body.length-1].lie)].className = " gezi ";
+            body.pop();
+        } else {
+            console.log("吃到了")
+            //刷新果子位置
+            guozi();
+        }
+        
+    }
+    //监控按键
+    document.onkeydown=showkey;
+    function showkey(){
+		key = event.keyCode;
+		if (key == 37) {
+            direct = 3;
+            console.log("按了←键！");
+        } else if (key == 38) {
+            direct = 4;
+            console.log("按了↑键！");
+        } else if (key == 39) {
+            direct = 1;
+            console.log("按了→键！");
+        } else if (key == 40) {
+            direct = 2;
+            console.log("按了↓键！");
+        }
+    }
+    var begin = document.getElementById("begin");
+    var timer;
+    begin.onclick = function(){
+        guozi();
+        clearInterval(timer)
+        timer = setInterval("auto_run()", 1000);
+    }
+</script>
+</html>
