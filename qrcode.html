@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="payQrcodeDiv"></div>
+</body>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="qrcode.min.js"></script>
+<script type="text/javascript">
+let url='https://www.baidu.com';
+var qrcode = new QRCode($("#payQrcodeDiv")[0],{ 
+    //这里的payQrcodeDiv是一个div，这里初始化的时候需要按数组取值的方式写所以后面加的[0]
+    width:200,
+    height:200
+});
+qrcode.makeCode(url);
+</script>
+</html>
